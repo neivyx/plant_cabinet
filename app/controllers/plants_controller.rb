@@ -47,8 +47,12 @@ class PlantsController < ApplicationController
     else
       redirect '/plants'
     end 
-  end 
-
-
-   
+  end    
 end
+
+private
+
+def plant_list 
+  @plant = Plant.find(params[:id])
+  end 
+end 
