@@ -66,7 +66,6 @@ class PlantsController < ApplicationController
       redirect '/plants'
     end 
   end    
-end
 
 private
 
