@@ -12,15 +12,15 @@ Watering Scheduling
 
 ## Installation
 
-Use the command below to clone the Sinatra project link or right click to copy link above.
+Use the command below to clone the Sinatra project link or right click to CODE link above.
 
-```rub
+```ruby
 git clone git@github.com:neivyx/plant_cabinet.git
 ```
 
 ## Usage
 
-```rub
+```ruby
 bundle install #install proper gems
 shotgun #to run server
  
