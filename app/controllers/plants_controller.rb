@@ -47,8 +47,10 @@ class PlantsController < ApplicationController
         @plant.update(name: params[:name], description: params[:description], location: params[:location], watering: params[:watering], light_requirement: params[:light_requirement])
       
         redirect "/plants/#{@plant.id}" 
- 
+        flash[:message] = "Plant successfully updated!"
+
      else 
+      flash[:error] = "Field can't be empty, please provide valid input!"
        redirect "/plants/#{@plant.id}/edit"
      end  
   end
