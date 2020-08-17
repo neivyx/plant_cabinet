@@ -1,5 +1,14 @@
 class UsersController < ApplicationController
-    has_secure_password
+  
+    get "/login" do
+        erb :login
+      end
+    
+      post '/login' do
 
-    has_many :plants
+        
+      end
+
+
+
 end
