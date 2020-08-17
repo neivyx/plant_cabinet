@@ -21,10 +21,11 @@
     <% if logged_in? %>  
     <li><h5> Welcome, <%= current_user.name %> </h5></li>
     <br>
-    <li><a href="/logout">LOG OUT</a></li>
-    <li><a href="/plants">LIST ALL PLANTS</a></li>
-    <li><a href="/plants/new">CREATE A PLANT</a></li>
     <li><a href="/users/<%=current_user.id%>">PROFILE</a></li>
+    <li><a href="/plants/new">CREATE A PLANT</a></li>
+      <li><a href="/plants">LIST ALL PLANTS</a></li>
+    <li><a href="/logout">LOG OUT</a></li>
+    
     <% end %>
   </div>
 
