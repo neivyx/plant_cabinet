@@ -12,7 +12,7 @@ Watering Scheduling
 
 ## Installation
 
-Use the command below to clone the  GIT project link or right click to copy link here -> [CODE](git@github.com:neivyx/plant_cabinet.git).
+Use the command below to clone the Sinatra project link or right click to copy link above.
 
 ```rub
 git clone git@github.com:neivyx/plant_cabinet.git
