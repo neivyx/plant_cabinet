@@ -29,6 +29,10 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end 
 
+    def authorized_to_edit?(plant)
+      plant.user == current_user
+    end
+
 
  
 end
