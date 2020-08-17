@@ -60,6 +60,7 @@ class PlantsController < ApplicationController
     plant_list
     if authorized_to_edit?(@plant)  
       @plant.destroy
+      flash[:message] = "Successfully deleted that entry."
       redirect '/plants'
     else
       redirect '/plants'
