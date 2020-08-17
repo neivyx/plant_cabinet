@@ -16,10 +16,11 @@ class PlantsController < ApplicationController
     if params[:name] != ""
       
       @plant = Plant.create(name: params[:name], user_id: current_user.id, location: params[:location], light_requirement: params[:light_requirment], watering: params[:watering], description: params[:description])
-    
+      flash[:message] = "Plant successfully created." if @plant.id
+
       redirect "/plants/#{@plant.id}"
     else 
-    
+      flash[:errors] = "Please provide information in the appropriate fields"
       redirect '/plants/new.html'
     end 
   end
