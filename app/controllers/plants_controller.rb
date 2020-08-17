@@ -24,6 +24,10 @@ class PlantsController < ApplicationController
     end 
   end
 
+  get '/plants/:id' do 
+    plant_list 
+    erb :'/plants/show.html'
+  end 
 
    
 end
