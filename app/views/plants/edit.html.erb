@@ -1,3 +1,17 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit Plants</h1>
  <br></br>
+
+<form class="" action="/plants/<%= @plant.id %>" method ="post">
+<input type= "hidden" name ="_method" value ="patch">
+<label for="name">Name: </label>
+<input type="text" name="name" value="<%=@plant.name%>"><br><br>
+<label for="location">Location:</label>
+<input type="text" name="location" value="<%=@plant.location%>"><br><br>
+<label for="watering">Watering: </label>
+<input type="text" name="watering" value="<%=@plant.watering%>"><br><br>
+<legend><label for="description">Description: </label></legend>
+<textarea type="text" name="description"><%= @plant.description %></textarea><br></br>
+<input type ="submit" name="" value="Edit Plant">
+</form>
+
 
