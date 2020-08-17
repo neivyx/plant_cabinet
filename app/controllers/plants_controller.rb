@@ -39,5 +39,16 @@ class PlantsController < ApplicationController
     end 
   end 
 
+  delete '/plants/:id' do 
+    plant_list
+    if authorized_to_edit?(@plant)  
+      @plant.destroy
+      redirect '/plants'
+    else
+      redirect '/plants'
+    end 
+  end 
+
+
    
 end
