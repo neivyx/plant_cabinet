@@ -6,4 +6,11 @@
 <p><b>Description:</b><%= @plant.description%></p>
 
 
-
+<% if authorized_to_edit?(@plant) %>
+<button><a href="/plants/<%= @plant.id %>/edit">Edit Plant</a></button>
+<br></br>
+<form class ="" action ="/plants/<%= @plant.id %>" method ="post">
+  <input type ="hidden" name ="_method" value="DELETE">
+  <input type ="submit" name ="" value ="Delete Plant">
+</form>
+<% end %>
