@@ -29,5 +29,15 @@ class PlantsController < ApplicationController
     erb :'/plants/show.html'
   end 
 
+  get '/plants/:id/edit' do
+    plant_list
+    redirect_if_not_logged_in
+    if authorized_to_edit?(@plant)
+      erb :'/plants/edit.html'
+    else 
+       redirect "/users/#{current_user.id}"
+    end 
+  end 
+
    
 end
