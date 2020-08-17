@@ -39,6 +39,20 @@ class PlantsController < ApplicationController
     end 
   end 
 
+  patch '/plants/:id' do
+     redirect_if_not_logged_in
+     plant_list 
+       if params[:name] != "" || params[:location] != "" || params[:watering] != "" || params[:description] != ""
+        @plant.update(name: params[:name], description: params[:description], location: params[:location], watering: params[:watering], light_requirement: params[:light_requirement])
+      
+        redirect "/plants/#{@plant.id}" 
+ 
+     else 
+       redirect "/plants/#{@plant.id}/edit"
+     end  
+  end
+
+
   delete '/plants/:id' do 
     plant_list
     if authorized_to_edit?(@plant)  
