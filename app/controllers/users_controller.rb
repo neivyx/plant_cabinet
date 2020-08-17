@@ -17,5 +17,14 @@ class UsersController < ApplicationController
         else 
           redirect '/login'
         end
+    end
+    
+    get '/users/:id' do
+      @user = User.find_by(id: params[:id])
+      erb :'/users/show.html'
+    end
+
+
+
 
 end
