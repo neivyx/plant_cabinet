@@ -2,3 +2,12 @@
 <i><h5>Click on the Plant name for more details.</h5></i></center>
 <br>
 <br>
+
+<% @plants.each do |plant|%>
+  <strong><a href="/plants/<%= plant.id %>"><%= plant.name %></a></strong>
+  <!-- <h5><%= plant.created_at %></h5> -->
+  <h5>Description:<%= plant.description%></h5>
+  <h5>Location:<%=plant.location%></h5>
+   <h5> By:<%= plant.user.name %> </h5>
+  <br></br>
+  <% end %>
