@@ -35,10 +35,10 @@ class UsersController < ApplicationController
         if @user.save 
     
          session[:user_id] = @user.id
-         
+         flash[:message] = "Account Succesfully Created!, #{@user.name}! Welcome!"
          redirect "/users/#{@user.id}"
         else 
-         
+          flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
           redirect '/signup'
         end
       end
