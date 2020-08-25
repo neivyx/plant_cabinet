@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
     erb :"/plants/index.html"
   end
   
-  get '/plants/new' do 
+  get '/plants/new' do
     redirect_if_not_logged_in
     erb :"/plants/new.html"
   end 
@@ -15,13 +15,13 @@ class PlantsController < ApplicationController
     redirect_if_not_logged_in
     if params[:name] != ""
       
-      @plant = Plant.create(name: params[:name], user_id: current_user.id, location: params[:location], light_requirement: params[:light_requirment], watering: params[:watering], description: params[:description])
+      @plant = Plant.create(name: params[:name], user_id: current_user.id, location: params[:location], watering: params[:watering], light_requirement: params[:light_requirement], description: params[:description])
       flash[:message] = "Plant successfully created." if @plant.id
 
       redirect "/plants/#{@plant.id}"
     else 
       flash[:errors] = "Please provide information in the appropriate fields"
-      redirect '/plants/new.html'
+      redirect "/plants/new.html"
     end 
   end
 
@@ -40,11 +40,11 @@ class PlantsController < ApplicationController
     end 
   end 
 
-  patch '/plants/:id' do
+  patch '/plants/:id' do 
      redirect_if_not_logged_in
      plant_list 
        if params[:name] != "" || params[:location] != "" || params[:watering] != "" || params[:description] != ""
-        @plant.update(name: params[:name], description: params[:description], location: params[:location], watering: params[:watering], light_requirement: params[:light_requirement])
+        @plant.update(name: params[:name], location: params[:location], watering: params[:watering], light_requirement: params[:light_requirement], description: params[:description],)
       
         redirect "/plants/#{@plant.id}" 
         flash[:message] = "Plant successfully updated!"
@@ -61,9 +61,9 @@ class PlantsController < ApplicationController
     if authorized_to_edit?(@plant)  
       @plant.destroy
       flash[:message] = "Successfully deleted that entry."
-      redirect '/plants'
+      redirect "/plants"
     else
-      redirect '/plants'
+      redirect "/plants"
     end 
   end    
 
