@@ -16,11 +16,9 @@ class PlantsController < ApplicationController
     if params[:name] != ""
       
       @plant = Plant.create(name: params[:name], user_id: current_user.id, location: params[:location], watering: params[:watering], light_requirement: params[:light_requirement], description: params[:description])
-      flash[:message] = "Plant successfully created." if @plant.id
 
       redirect "/plants/#{@plant.id}"
     else 
-      flash[:errors] = "Please provide information in the appropriate fields"
       redirect "/plants/new.html"
     end 
   end
@@ -60,7 +58,6 @@ class PlantsController < ApplicationController
     plant_list
     if authorized_to_edit?(@plant)  
       @plant.destroy
-      flash[:message] = "Successfully deleted that entry."
       redirect "/plants"
     else
       redirect "/plants"
