@@ -4,18 +4,16 @@ class UsersController < ApplicationController
         erb :login
       end
     
-      post '/login' do
+      post '/login' do 
         @user = User.find_by(email: params[:email])
 
         if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id
           
-          flash[:message] = "Welcome, #{@user.name}!"
           redirect "/users/#{@user.id}"
     
           
         else 
-          flash[:error] = "Invalid Credentials"
           redirect '/login'
         end
     end
@@ -30,15 +28,13 @@ class UsersController < ApplicationController
       end
 
 
-      post '/users' do
-        @user = User.new(params)
+      post '/users' do 
+        @user = User.new(params) 
         if @user.save 
     
          session[:user_id] = @user.id
-         flash[:message] = "Account Succesfully Created!, #{@user.name}! Welcome!"
          redirect "/users/#{@user.id}"
         else 
-          flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
           redirect '/signup'
         end
       end
