@@ -7,9 +7,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "our_super_secret_session_secret"
-    register Sinatra::Flash
-
+    set :session_secret, "our_super_secret_session_secret" 
   
   end
 
@@ -28,7 +26,7 @@ class ApplicationController < Sinatra::Base
     end 
 
     def logged_in? 
-      !!current_user
+      !!current_user 
     end 
 
     def authorized_to_edit?(plant)
