@@ -20,7 +20,13 @@ class UsersController < ApplicationController
 
     get '/users/:id' do
       @user = User.find_by(id: params[:id])
+      @plants = @user.plants
+      redirect_if_not_logged_in
+      if @user != current_user
+        redirect "/users/#{current_user.id}"
+      end
       erb :'/users/show.html'
+
     end
 
     get '/signup' do
