@@ -3,12 +3,11 @@
 <br>
 <br>
 
-<% @plants.each do |plant|%>
-  <strong><a href="/plants/<%= plant.id %>"><%= plant.name %></a></strong>
-  <br><br>
+  <% @plants.each do |plant| %>
+<h4><a href="/plants/<%= plant.id %>"><%= plant.created_at %></a></h4>
+  <p><%= plant.name %></p>
   <h5><b>Description -- <%= plant.description%></h5>
-  <h5>Location -- <%=plant.location%></h5>
-  <br>
-   <h5> By: <%= plant.user.name %> </h5>
-  <br></br>
-  <% end %>
+  <h5>Location -- <%= plant.location%></h5>
+  <p><br>From  <%= plant.user.name %></p>
+  <br><br>
+<% end %>
